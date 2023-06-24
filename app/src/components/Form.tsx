@@ -6,13 +6,13 @@ type FormPropsType = {
 const Form = (props: FormPropsType) => {
   return (
     <form onSubmit={props.getWeather}>
-      <select name="" id="">
+      {/* <select name="" id="">
         <option value="tokyo" selected>
           東京
         </option>
         <option value="osaka">大阪</option>
         <option value="nagoya">名古屋</option>
-      </select>
+      </select> */}
       <input
         type="text"
         name="city"
