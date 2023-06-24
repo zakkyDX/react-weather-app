@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  ts-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/src # ローカルをコンテナ内にマウント
+    command: sh -c "cd app && PORT=3030 yarn start" # 3030ポートで yarn start
+    ports:
+      - "3030:3030"
+    stdin_open: true
