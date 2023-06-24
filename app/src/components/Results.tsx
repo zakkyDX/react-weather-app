@@ -5,6 +5,9 @@ type ResultPropsType = {
     temperature: string;
     conditionText: string;
     icon: string;
+    windDirection: string;
+    windKph: string;
+    humidity: string;
   };
 };
 
@@ -25,6 +28,13 @@ const Results = (props: ResultPropsType) => {
           <img src={props.results.icon} alt="icon" />
           <span>{props.results.conditionText}</span>
         </div>
+      )}
+      {props.results.windDirection && (
+        <div className="">{props.results.windDirection}</div>
+      )}
+      {props.results.windKph && <div className="">{props.results.windKph}</div>}
+      {props.results.humidity && (
+        <div className="">{props.results.humidity}</div>
       )}
     </div>
   );

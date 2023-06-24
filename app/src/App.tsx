@@ -10,6 +10,9 @@ type ResultStateType = {
   temperature: string;
   conditionText: string;
   icon: string;
+  windDirection: string;
+  windKph: string;
+  humidity: string;
 };
 
 function App() {
@@ -20,6 +23,9 @@ function App() {
     temperature: "",
     conditionText: "",
     icon: "",
+    windDirection: "",
+    windKph: "",
+    humidity: "",
   });
   const getWeather = (e: React.FormEvent<HTMLFormElement>) => {
     console.log("getWeather");
@@ -31,12 +37,16 @@ function App() {
     )
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setResults({
           country: data.location.country,
           cityName: data.location.name,
           temperature: data.current.temp_c,
           conditionText: data.current.condition.text,
           icon: data.current.condition.icon,
+          windDirection: data.current.wind_dir,
+          windKph: data.current.wind_kph,
+          humidity: data.current.humidity,
         });
       })
       .catch(() => window.alert("通信に失敗しました"));
